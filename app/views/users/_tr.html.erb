@@ -1,6 +1,10 @@
-<tr>  
-  <td><%= user.name %></td>
-  <td><%= link_to 'Show', user %></td>
-  <td><%= link_to 'Edit', edit_user_path(user) %></td>
-  <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+<tr>
+  <%# remote: trueを指定してedit.html.erbではなくedit.js.erbを呼び出し %>
+  <td><%= link_to user.id, edit_user_path(user), remote: true %></td>
+  <td><%= link_to user.name, edit_user_path(user), remote: true %></td> 
+  <td><%= link_to 'Destroy', user, method: :delete, title: 'Destory User', data: {
+        confirm: 'Are you sure?',
+        commit: 'Destroy',
+        cancel: 'Cancel' 
+      }, class: "btn btn-danger" %>
 </tr>

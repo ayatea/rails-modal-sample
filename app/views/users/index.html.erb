@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="user-container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+  <h1>Users</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>User List</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody id="user-tbody">
-    <% @users.each do |user| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <%# remote: trueを指定してedit.html.erbではなくedit.js.erbを呼び出し %>
-        <td><%= link_to user.id, edit_user_path(user), remote: true %></td>
-        <td><%= link_to user.name, edit_user_path(user), remote: true %></td> 
-        <td><%= link_to 'Destroy', user, method: :delete, title: 'Destory User', data: {
-              confirm: 'Are you sure?',
-              commit: 'Destroy',
-              cancel: 'Cancel' 
-            }, class: "btn btn-danger" %>
+        <th>User List</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody id="user-tbody">
+      <% @users.each do |user| %>
+        <tr>
+          <%# remote: trueを指定してedit.html.erbではなくedit.js.erbを呼び出し %>
+          <td><%= link_to user.id, edit_user_path(user), remote: true %></td>
+          <td><%= link_to user.name, edit_user_path(user), remote: true %></td> 
+          <td><%= link_to 'Destroy', user, method: :delete, title: 'Destory User', data: {
+                confirm: 'Are you sure?',
+                commit: 'Destroy',
+                cancel: 'Cancel' 
+              }, class: "btn btn-danger" %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%# remote: trueを指定してnew.html.erbではなくnew.js.erbを呼び出し %>
-<%= link_to 'New User', new_user_path, remote: true, class: "btn btn-lg, btn-primary" %>
-<div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <br>
+
+  <%# remote: trueを指定してnew.html.erbではなくnew.js.erbを呼び出し %>
+  <%= link_to 'New User', new_user_path, remote: true, class: "btn btn-lg, btn-primary" %>
+  <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+</div>
