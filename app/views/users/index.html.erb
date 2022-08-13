@@ -24,4 +24,6 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path, class: "btn btn-lg, btn-primary" %>
+<%# remote: trueを指定してnew.html.erbではなくnew.js.erbを呼び出し %>
+<%= link_to 'New User', new_user_path, remote: true, class: "btn btn-lg, btn-primary" %>
+<div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
